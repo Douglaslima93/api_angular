@@ -28,8 +28,22 @@ export class CursoComponent implements OnInit {
   }
 
   //Cadastro
-  cadastro(): void {
-    alert("cadastro")
+  cadastro(){
+    this.curso_service.cadastrarCurso(this.curso).subscribe(
+      (res:Curso[]) => {
+
+        //Adicionando dados ao vetor
+        this.vetor = res;
+
+
+        //Limpar os atributos
+        this.curso.nomeCurso = undefined
+        this.curso.valorCurso = undefined
+
+        //Atualizar a listagem
+        this.selecao();
+      }
+    )
   }
 
   //Seleção

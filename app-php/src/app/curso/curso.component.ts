@@ -23,7 +23,7 @@ export class CursoComponent implements OnInit {
 
   //Inicializador
   ngOnInit() {
-    //Ao iniciar o sostema, deverá listar os cursos
+    //Ao iniciar o sistema, deverá listar os cursos
     this.selecao();
   }
 

@@ -54,4 +54,27 @@ export class CursoService {
     }))
   }
 
+  //Atualizar curso
+  atualizarCurso(c:Curso):Observable<Curso[]>{
+
+  //Executa a alteração via URL
+    return this.http.put(this.url+'alterar', {cursos: c})
+
+    //Percorrer o vetor para saber qual é o id do curso alterado
+    .pipe(map((res) => {
+      const cursoAlterado = this.vetor.find((item) => {
+        return +item['idCurso'] === +['idCurso'];
+      });
+
+    //Alterar o valor do vetor local
+    if(cursoAlterado){
+      cursoAlterado['nomeCurso'] = c['nomeCurso'];
+      cursoAlterado['valorCurso'] = c['valorCurso'];
+    }
+
+    return this.vetor;
+
+    }))
+  }
+
 }
